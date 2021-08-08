@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card border-primary card-shadow mt-5 mb-5">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Breed List</h5>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Breed Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <div *ngFor="let pic of pics; let i = index" [attr.data-index]="i">
+            <tr class="w-100">
+              <td>{{pic.split("/")[4]}}</td>
+              <td class="textRight">
+                <img [src]="pic" height="80" width="80" />
+              </td>
+            </tr>
+          </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-primary card-shadow mt-5 mb-5">
+        <div class="card-header bg-primary">
+          <h5 class="text-white">Random Dog Generator</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-7 mt-1">
+              <input [(ngModel)]="searchText" class="form-control form-control-sm  border-primary" type="text" placeholder="Search by breed">
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 mt-1 text-right">
+              <button type="button" (click)="searchByBreed()" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Generate</button>
+          </div>
+          </div>
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-md-12">
+                <img class="img-fluid mt-3" [src]="searchPic" />
+              </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
